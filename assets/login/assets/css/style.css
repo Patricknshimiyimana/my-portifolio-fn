@@ -4,6 +4,7 @@ body {
 }
 
 a {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -69,9 +70,6 @@ h2 {
     padding: 2rem;
 }
 
- form {
-    margin: auto;
-}
 
 .form__content{
     margin: auto;
@@ -121,7 +119,7 @@ h2 {
     border-radius: 1rem;
     color: #fff;
     background-color: #6E57E0;
-    padding: .8rem 5rem;
+    padding: .8rem 0;
 }
 
 .btn:hover {
@@ -129,8 +127,17 @@ h2 {
     border: 1px solid #fff;
 }
 
-form .btn {
-    margin: 1rem 37.2rem;
+
+.submit__btn {
+    width: 500px;
+}
+
+.submit-btn {
+    margin: auto;
+    width: 500px;
+    border-radius: .8rem;
+    padding: .75rem 1rem .25rem;
+    margin-bottom: 1.2rem;
 }
 
 
@@ -149,6 +156,11 @@ form .btn {
   
     form .btn {
         margin: auto;
+    }
+
+    .form__content,
+    .submit__btn {
+        width: 300px;
     }
 
   }
