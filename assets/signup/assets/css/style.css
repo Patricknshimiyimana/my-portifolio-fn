@@ -4,6 +4,7 @@ body {
 }
 
 a {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -129,8 +130,16 @@ h2 {
     border: 1px solid #fff;
 }
 
-form .btn {
-    margin: 1rem 37.2rem;
+.submit__btn {
+    width: 500px;
+}
+
+.submit-btn {
+    margin: auto;
+    width: 500px;
+    border-radius: .8rem;
+    padding: .75rem 1rem .25rem;
+    margin-bottom: 1.2rem;
 }
 
 
