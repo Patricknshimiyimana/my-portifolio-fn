@@ -25,7 +25,7 @@
 <div class="form__container">
 
     <div class="title centered"><h1>Create an account</h1></div>
-    <form id="form">
+    <form id="form" onsubmit="signUp()">
 
       <div class="form__content">
         <label for="name" class="input__label">Name:</label>
@@ -45,7 +45,11 @@
         <div class="error"></div>
       </div>
   
-      <button type="submit" id="submit" class="form__content btn">Signup</button>
+      <div class="submit-btn">
+        <button type="submit" id="submit" class="submit__btn btn">
+          <a href="#">Signup</a>
+        </button>
+      </div>
     </form>
 
     <div class="form__bottom">
@@ -56,6 +60,7 @@
       </div>
   </div>
 
-  <script src="assets/js/validation.js"></script>
+  <!-- <script src="assets/js/validation.js"></script> -->
+  <script src="../js/authLocalStorage.js"></script>
 </body>
 </html>

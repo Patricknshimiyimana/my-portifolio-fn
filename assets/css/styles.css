@@ -362,6 +362,7 @@ img{
     color: #fff;
     padding: .5rem 1rem;
     border-radius: .5rem;
+    border: none;
     font-weight: var(--font-medium);
     transition: .3s ease;
 }

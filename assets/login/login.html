@@ -25,7 +25,7 @@
 <div class="form__container">
 
     <div class="title centered"><h1>Log Into Your Account</h1></div>
-    <form id="form">
+    <form id="form" onsubmit="signIn(event)">
   
       <div class="form__content">
         <label for="email" class="input__label">Email:</label>
@@ -39,9 +39,10 @@
         <div class="error"></div>
       </div>
   
-      <button type="submit" id="submit" class="form__content btn">
-        <a href="../Admin dashboard/index.html">Login</a>
-      </button>
+        <div class="submit-btn">
+          <button type="submit" id="submit" class="submit__btn btn"> Login </button>
+        </div>
+
     </form>
 
     <div class="form__bottom">
@@ -50,8 +51,9 @@
           <p> <a href="../signup/signup.html">Signup</a></p>
         </div>
       </div>
-  </div>
+</div>
 
-  <script src="assets/js/validation.js"></script>
+  <!-- <script src="assets/js/validation.js"></script> -->
+  <script src="../js/authLocalStorage.js"></script>
 </body>
 </html>
