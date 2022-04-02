@@ -1,7 +1,7 @@
 const signUp = e => {
     let fname = document.getElementById('username').value,
         email = document.getElementById('email').value,
-        pwd =  document.getElementById('password').value;
+        pwd =  btoa(document.getElementById('password').value);
 
     let formData = JSON.parse(localStorage.getItem('formData')) || [];
 
@@ -28,7 +28,7 @@ function signIn(e) {
     let pwd = document.getElementById('password').value;
     let formData = JSON.parse(localStorage.getItem('formData')) || [];
     let exist = formData.length && 
-    JSON.parse(localStorage.getItem('formData')).some(data => data.email.toLowerCase() == email && data.pwd.toLowerCase() == pwd);
+    JSON.parse(localStorage.getItem('formData')).some(data => data.email.toLowerCase() == email && atob(data.pwd) == pwd);
     if(!exist){
         alert("Email or password is incorrect!");
     }
