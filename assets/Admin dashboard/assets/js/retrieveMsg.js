@@ -1,30 +1,5 @@
-// SAVE A MESSAGE IN LOCAL STORAGE
-const form = document.getElementById('form');
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const messageInput = document.getElementById('message').value;
-
-    const message = {
-        username,
-        email,
-        messageInput
-    }
-
-    let messages = JSON.parse(localStorage.getItem("messages") || "[]");
-
-    messages.unshift(message);
-
-    localStorage.setItem("messages", JSON.stringify(messages))
-    
-    location.href = "../../index.html"
-})
-
-
-
-// RETRIEVE A MESSAGE FROM LOCAL STORAGE AND DISPLAY IN DASHBOARD
+ // RETRIEVE A MESSAGE FROM LOCAL STORAGE AND DISPLAY IN DASHBOARD
 
 let messages;
 
@@ -34,13 +9,20 @@ const displayMessages = () => {
     let messageElement;
     messages.forEach(element => {
         messageElement = `
-        <div class="message-card">
+       
             <div class="message-content">
                 <h2>${element.username}</h2>
                 <h4>${element.email}</h4>
                 <p>${element.messageInput}</p>
             </div>
-     </div> `;
+      `;
+
+     let messageCard = document.createElement('div');
+    //  messageCard.className = 'message-card';
+     messageCard.classList.add('message-card');
+     messageCard.innerHTML = messageElement;
+
+     document.querySelector('.messages-container').appendChild(messageCard)
 
         // let messageCard = document.createElement('div');
         // messageCard.className('message-card');
@@ -67,7 +49,8 @@ const displayMessages = () => {
     });
 
     let messagesContainer = document.querySelector('.messages-container');
-    messagesContainer.innerHTML = messageElement;
+        // messagesContainer.innerHTML = messageElement;
+        
 }
 
 displayMessages();
