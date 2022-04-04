@@ -1,17 +1,20 @@
 
  // RETRIEVE A MESSAGE FROM LOCAL STORAGE AND DISPLAY IN DASHBOARD
 
+// get messages from local storage
 let messages;
 
 const displayMessages = () => {
-    // get messages from local storage
     messages = JSON.parse(localStorage.getItem('messages'));
     let messageElement;
     messages.forEach(element => {
         messageElement = `
        
             <div class="message-content">
+                <div class="flex">
                 <h2>${element.username}</h2>
+                <button class="btn btn-delete" id="delete-msg-btn" onclick="deleteMsg(${element.id})">Delete</button>
+                </div>
                 <h4>${element.email}</h4>
                 <p>${element.messageInput}</p>
             </div>
@@ -47,10 +50,19 @@ const displayMessages = () => {
         // messageContent.appendChild(email);
         // messageContent.appendChild(messageInput);
     });
-
-    let messagesContainer = document.querySelector('.messages-container');
-        // messagesContainer.innerHTML = messageElement;
         
 }
 
 displayMessages();
+
+
+// DELETE A MESSAGE
+
+function deleteMsg(id) {
+      console.log(id)
+      messages = messages.filter((item) => item.id != id);
+      localStorage.setItem('messages', JSON.stringify(messages));
+    
+      location.reload();
+}
+
