@@ -251,13 +251,10 @@ a:hover {
 
 .submit__btn {
     background-color: #6E57E0;
-    width: 500px;
+    /* width: 500px; */
+    padding: .8rem 8rem;
     border-radius: 2rem;
-}
-
-.submit__btn a {
     color: white;
-    text-decoration: none;
     border: none;
 }
 

@@ -39,32 +39,6 @@
                     <h2 class="h2">Latest Blog Post</h2>
 
                     <div class="blog-card-group">
-                    
-                      <div class="blog-card">
-                        <div class="blog-card-banner">
-                            <img src="./assets/images/portifolio-pic3.jpg"
-                               alt="Adaptive Loading - Improving Web Performance on low-end devices" width="250"
-                              class="blog-banner-img">
-                        </div>
-                    
-                        <div class="blog-content-wrapper">
-                            <button class="btn">Web Performance</button>
-                            <h3><a href="" class="h3">Adaptive Loading - Improving Web Performance on low-end devices</a></h3>
-                            <p class="blog-text">
-                              Adaptive Loading: Do not just respond based on screen size, adapt based on actual device hardware.
-                              Any user can have a slow experience. In a world with widely varying device capabilities, a "one-size
-                              experience may not always work. Sites that delight users on high-end devices can be unusable on
-                              low-end ones, particularly on median mobile and desktop hardware and in emerging markets.
-                            </p>
-                    
-                          <div class="wrapper-flex">
-                               <button class="btn btn-edit">Edit</button>
-                               <button class="btn btn-delete">Delete</button>
-                           </div>
-                    
-                         </div>
-                    
-                       </div>
 
                        <div class="blog-card">
                         <div class="blog-card-banner">
@@ -124,5 +98,70 @@
             </div> 
         </div>
     </div>
+
+    <script>
+      // RETRIEVE POSTS FROM LOCAL STORAGE AND DISPLAY IN DASHBOARD
+// Get posts from local storage
+
+let posts;
+
+const displayPosts = () => {
+    posts = JSON.parse(localStorage.getItem('posts'));
+    let postElement;
+    posts.forEach(element => {
+        postElement = `
+       
+        <div class="blog-card">
+
+        <div class="blog-card-banner">
+          <img src="${element.image}" alt="" width="250" class="blog-banner-img">
+        </div>
+
+        <div class="blog-content-wrapper">
+
+          <button class="btn">${element.category}</button>
+
+          <h3>
+            <a href="./assets/html/post.html" class="h3">${element.title}</a>
+          </h3>
+
+          <p class="blog-text"> ${element.body} </p>
+
+          <div class="wrapper-flex">
+            <div class="wrapper">
+              <p class="text-sm">
+                <time datetime="2021-09-13">Published ${element.publishDate}</time>
+              </p>
+            </div>
+
+          </div>
+          <div class="wrapper-flex">
+               <button class="btn btn-edit">Edit</button>
+               <button class="btn btn-delete" onclick="deletePost('${element.id}')">Delete</button>
+            </div>
+        </div>
+        </div>
+      `;
+
+     let blogPost = document.createElement('div');
+    //  postCard.className = 'post-card';
+     blogPost.classList.add('blog__post');
+     blogPost.innerHTML = postElement;
+
+     document.querySelector('.blog-card-group').appendChild(blogPost);
+    });
+        
+}
+
+displayPosts();
+
+const deletePost = id => {
+      console.log(id)
+      posts = posts.filter((item) => item.id != id);
+      localStorage.setItem('posts', JSON.stringify(posts));
+      location.reload();
+    }
+
+    </script>
 </body>
 </html>
