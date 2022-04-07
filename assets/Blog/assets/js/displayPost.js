@@ -12,7 +12,7 @@ const displayPosts = () => {
         <div class="blog-card">
 
         <div class="blog-card-banner">
-          <img src="${element.image}" alt="" width="250" class="blog-banner-img">
+          <img src="data:image/png;base64,${element.image}" alt="" width="250" class="blog-banner-img">
         </div>
 
         <div class="blog-content-wrapper">
